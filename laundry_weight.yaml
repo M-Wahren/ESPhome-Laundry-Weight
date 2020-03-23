@@ -1,0 +1,71 @@
+---
+#Laundry Weight Sensor
+substitutions:
+  esp_name: laundry_weight
+
+esphome:
+  name: $esp_name
+  platform: ESP8266
+  board: d1_mini
+
+# WiFi connection
+wifi:
+  ssid: !secret WiFi_SSID
+  password: !secret WiFi_Password
+  manual_ip:
+    static_ip: !secret esp31_ip
+    gateway: !secret esp_gateway
+    subnet: !secret esp_subnet
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret API_Password
+
+ota:
+  password: !secret OTA_Password
+
+# Enable Web server
+web_server:
+  port: 80
+
+# Sync time with Home Assistant
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+sensor:
+  # Uptime sensor
+  - platform: uptime
+    name: "${esp_name}_uptime"
+  # WiFi Signal sensor
+  - platform: wifi_signal
+    name: "${esp_name}_signal"
+    update_interval: 20s
+
+  - platform: hx711
+    name: "${esp_name}_Scale"
+    dout_pin: D0
+    clk_pin: D1
+    update_interval: 60s
+    unit_of_measurement: kg
+    accuracy_decimals: 2
+    filters:
+      # Map from sensor -> measured value
+      - calibrate_linear:
+          - 126650.0 -> 0.00 # scale with no weight on
+          - 2323070.0 -> 103.6 # scale with me on
+
+# Text sensors with general information
+text_sensor:
+  - platform: version
+    name: $esp_name
+  - platform: wifi_info
+    ip_address:
+      name: "${esp_name}_ip"
+    ssid:
+      name: "${esp_name}_ssid"
+    bssid:
+      name: "${esp_name}_bssid"
