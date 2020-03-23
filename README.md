@@ -1,0 +1,1 @@
+# ESPhome-Laundry-Weight
