@@ -1,6 +1,6 @@
 # ESPhome Laundry Weight
 
-# Items used
+## Items used
 * Wemos D1 mini
 * HX711 Amplifier
 * Digital bathroom Scale
@@ -14,14 +14,14 @@ Connecting my load cells upp to the Load sensor combinator inside the scale and 
 
 [Image]
 
-Time to finish project?
+## Time to finish project?
 - 30 min soldering
 - 10 min writing ESPhome yaml
 - 3 h debuging
 
 Apparently you need good solder joints or it will  not work..
 
-# Files
+## Files
 * ESPhome YAML file
 * [Image with] Load sensor combinator (as i have it connected)
 * [Image without] Load sensor combinator if you go that rout.
