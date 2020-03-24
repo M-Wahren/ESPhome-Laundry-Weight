@@ -27,6 +27,11 @@ Apparently you need good solder joints or it will  not work..
 * [Image without] Load sensor combinator if you go that rout.
 
 
+As this is my first write-up and i have no clue on how to "correctly" do one feel free to reach out and give me pointers.
+Would love to hear some feedback and if you have any questions i'll try my best to answer them.
+
+Discord: MWahren#0086
+
 [Image]: https://github.com/M-Wahren/ESPhome-Laundry-Weight/raw/master/Current_Setup/Scale_Closeup.jpg
 [Image with]: https://github.com/M-Wahren/ESPhome-Laundry-Weight/raw/master/With_Load_sensor_combinator.png
 [Image without]: https://github.com/M-Wahren/ESPhome-Laundry-Weight/raw/master/Without_Load_sensor_combinator.png
